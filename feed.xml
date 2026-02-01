@@ -5,22 +5,14 @@
     <link>https://nanaadane.com</link>
     <description>Blog posts from nana adane</description>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Feb 2026 15:49:40 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 01 Feb 2026 19:40:04 +0100</lastBuildDate>
     <atom:link href="https://nanaadane.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Useless Tools</title>
-      <link>https://nanaadane.com/blog/2026-02-01-useless-tools.html</link>
-      <guid>https://nanaadane.com/blog/2026-02-01-useless-tools.html</guid>
+      <title>Building a Frictionless Publishing System with Emacs</title>
+      <link>https://nanaadane.com/blog/2026-02-01-org-personal-site.html</link>
+      <guid>https://nanaadane.com/blog/2026-02-01-org-personal-site.html</guid>
       <pubDate>Sun, 01 Feb 2026 00:00:00 +0100</pubDate>
-      <description>Your content here.
-</description>
-    </item>
-    <item>
-      <title>Try again</title>
-      <link>https://nanaadane.com/blog/2026-02-01-try-again.html</link>
-      <guid>https://nanaadane.com/blog/2026-02-01-try-again.html</guid>
-      <pubDate>Sun, 01 Feb 2026 00:00:00 +0100</pubDate>
-      <description>Some content here
+      <description>I rebuilt my personal site from scratch, and this time I did it right. No static site generator to install, no Ruby dependencies to manage, no build scripts scattered across my system. Just Emacs, org-mode, and a custom package I built to tie it all together.
 </description>
     </item>
     <item>
@@ -30,22 +22,6 @@
       <pubDate>Sun, 01 Feb 2026 00:00:00 +0100</pubDate>
       <description>#+CAPTION: OpenCode in Action
 [[https://opencode.ai/docs/_astro/screenshot.CQjBbRyJ_1dLadc.webp]]
-</description>
-    </item>
-    <item>
-      <title>First Post</title>
-      <link>https://nanaadane.com/blog/first-post.html</link>
-      <guid>https://nanaadane.com/blog/first-post.html</guid>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
-      <description>Welcome to my new blog. This is the first post.
-</description>
-    </item>
-    <item>
-      <title>Test Post</title>
-      <link>https://nanaadane.com/blog/test.html</link>
-      <guid>https://nanaadane.com/blog/test.html</guid>
-      <pubDate>Wed, 10 Jan 2024 00:00:00 +0100</pubDate>
-      <description>This is my first site using org mode. Let&apos;s try out some features:
 </description>
     </item>
     <item>
@@ -62,6 +38,14 @@
       <guid>https://nanaadane.com/blog/binder-wiki.html</guid>
       <pubDate>Thu, 19 May 2022 17:42:00 +0200</pubDate>
       <description>I&apos;ve decided to migrate binder from a static blog generator to a static wiki engine. This is so that I can better capture and organise my thoughts, learnings and projects.
+</description>
+    </item>
+    <item>
+      <title>binder</title>
+      <link>https://nanaadane.com/blog/binder.html</link>
+      <guid>https://nanaadane.com/blog/binder.html</guid>
+      <pubDate>Sat, 22 Jan 2022 04:53:00 +0100</pubDate>
+      <description>In an attempt to get over a case of [[https://twitter.com/NanaOAdane/status/1484731437265920004?s=20][coder&apos;s block]], I built myself a static generator. It&apos;s called *binder*. /It&apos;s what generated what you&apos;re reading now./
 </description>
     </item>
     <item>
