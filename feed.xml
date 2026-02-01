@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nana adane</title>
+    <link>https://nanaadane.com</link>
+    <description>Blog posts from nana adane</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Feb 2026 15:30:20 +0100</lastBuildDate>
+    <atom:link href="https://nanaadane.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useless Tools</title>
+      <link>https://nanaadane.com/blog/2026-02-01-useless-tools.html</link>
+      <guid>https://nanaadane.com/blog/2026-02-01-useless-tools.html</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0100</pubDate>
+      <description>Your content here.
+</description>
+    </item>
+    <item>
+      <title>Try again</title>
+      <link>https://nanaadane.com/blog/2026-02-01-try-again.html</link>
+      <guid>https://nanaadane.com/blog/2026-02-01-try-again.html</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0100</pubDate>
+      <description>Your content here.
+</description>
+    </item>
+    <item>
+      <title>OpenCode</title>
+      <link>https://nanaadane.com/blog/2026-02-01-opencode.html</link>
+      <guid>https://nanaadane.com/blog/2026-02-01-opencode.html</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0100</pubDate>
+      <description>#+CAPTION: OpenCode in Action
+[[https://opencode.ai/docs/_astro/screenshot.CQjBbRyJ_1dLadc.webp]]
+</description>
+    </item>
+    <item>
+      <title>First Post</title>
+      <link>https://nanaadane.com/blog/first-post.html</link>
+      <guid>https://nanaadane.com/blog/first-post.html</guid>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
+      <description>Welcome to my new blog. This is the first post.
+</description>
+    </item>
+    <item>
+      <title>Test Post</title>
+      <link>https://nanaadane.com/blog/test.html</link>
+      <guid>https://nanaadane.com/blog/test.html</guid>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 +0100</pubDate>
+      <description>This is my first site using org mode. Let&apos;s try out some features:
+</description>
+    </item>
+    <item>
+      <title>dwarf-fortress</title>
+      <link>https://nanaadane.com/blog/dwarf-fortress.html</link>
+      <guid>https://nanaadane.com/blog/dwarf-fortress.html</guid>
+      <pubDate>Thu, 21 Dec 2023 14:03:00 +0100</pubDate>
+      <description>Dwarf Fortress is game with old looking ASCII graphics, procedurally generated worlds, characters and lore. What&apos;s not to love about it.
+</description>
+    </item>
+    <item>
+      <title>binder wiki engine</title>
+      <link>https://nanaadane.com/blog/binder-wiki.html</link>
+      <guid>https://nanaadane.com/blog/binder-wiki.html</guid>
+      <pubDate>Thu, 19 May 2022 17:42:00 +0200</pubDate>
+      <description>I&apos;ve decided to migrate binder from a static blog generator to a static wiki engine. This is so that I can better capture and organise my thoughts, learnings and projects.
+</description>
+    </item>
+    <item>
+      <title>In the beginning..</title>
+      <link>https://nanaadane.com/blog/in-the-beginning.html</link>
+      <guid>https://nanaadane.com/blog/in-the-beginning.html</guid>
+      <pubDate>Thu, 25 Sep 2014 00:25:00 +0200</pubDate>
+      <description>So here I am in the middle of the night creating my first statically generated blog. I never got a hang of blogging (before this]. I tried using many platforms. [Blogger|http://jackof1trade.blogspot.com/], [Tumblr|http://w-r-x.tumblr.com/] (I must admit my Tumblr blog loooked the coolest], Wordpress and even Medium but they never allowed me to type in [Vim|http://vim-adventures.com/] as I am now :p. Basically what I did here was to get [Hexo|http://hexo.io/] installed, figured out how to get themes for it and finally how to write post and deploy.
+</description>
+    </item>
+  </channel>
+</rss>
