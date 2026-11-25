@@ -1,0 +1,210 @@
+/* Nana's reading-first layer. Org and the publisher remain the source of content. */
+:root {
+  --fg: #ddd7cf;
+  --heading: #f2eee8;
+  --dim: #aaa098;
+  --border: #38312c;
+  --surface: #1a1613;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: dark;
+  scroll-padding-top: 2rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  width: 100%; max-width: 1040px; margin: 0 auto;
+  padding: 2.5rem 2rem 1.5rem;
+  font-size: 17px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: #d4a574; color: #131010; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; }
+a { border: 0; text-decoration: underline; text-decoration-color: #73604b;
+  text-underline-offset: .2em; text-decoration-thickness: 1px;
+  transition: color .15s ease, text-decoration-color .15s ease; }
+a:hover { border-bottom: 0; text-decoration-color: currentColor; }
+.skip-link { position: absolute; left: 1rem; top: -6rem; z-index: 2;
+  padding: .5rem 1rem; color: var(--bg); background: var(--link); }
+.skip-link:focus { top: 1rem; }
+.site-header {
+  min-height: 64px; padding: 0 0 1.25rem; margin-bottom: 3.5rem;
+  gap: 1rem 2rem; align-items: center;
+}
+.site-header .logo { font-size: 1.65rem; letter-spacing: 0; font-weight: 500;
+  padding: 0; text-shadow: none; line-height: 1.2; text-decoration: none; }
+.site-header .logo:hover { text-shadow: none; transform: none; }
+.site-nav ul { gap: .3rem 1.35rem; align-items: center; }
+.site-nav li { margin: 0; }
+.site-nav a { display: inline-flex; align-items: center; min-height: 44px;
+  font-size: .8rem; text-decoration: none; color: var(--dim); }
+.site-nav a[aria-current] { color: var(--link); text-decoration: underline;
+  text-underline-offset: .55em; text-decoration-color: currentColor; }
+.site-nav a:hover { color: var(--heading); }
+main.content { max-width: 720px; margin-inline: auto; min-width: 0; }
+.content > h1.title { font-size: clamp(1.8rem, 4.5vw, 2.55rem); line-height: 1.25;
+  font-weight: 600; letter-spacing: -.035em; color: var(--heading);
+  margin: 0 0 1.5rem; padding: 0; border: 0; text-wrap: balance; }
+h2, h3, h4 { color: var(--heading); font-weight: 600; line-height: 1.4;
+  letter-spacing: -.02em; text-wrap: balance; }
+h2 { font-size: 1.25rem; margin: 2.75rem 0 1rem; }
+h3 { font-size: 1.05rem; margin: 2rem 0 .75rem; }
+h4 { font-size: .95rem; margin: 1.5rem 0 .5rem; }
+p { margin: 1rem 0; }
+.content p, .content .org-ul > li, .content .org-ol > li {
+  max-width: 58ch; text-wrap: pretty;
+}
+.content > p:first-of-type { font-size: 1.15rem; line-height: 1.65; color: var(--heading); }
+.content > .subtitle, .content .timestamp-wrapper { color: var(--dim); }
+body:has(.site-nav a[href="/index.html"][aria-current="page"]) .title {
+  font-size: clamp(2rem, 5.5vw, 3.25rem); max-width: 22ch; line-height: 1.2;
+  margin-bottom: 1.4rem;
+}
+/* Org exports the portrait as a figure; keep the introduction itself in Org. */
+main.content:has(> .figure .profile-portrait) {
+  display: grid; grid-template-columns: minmax(0, 1fr) 160px; column-gap: 2rem;
+}
+.content:has(> .figure .profile-portrait) > .title { grid-column: 1; grid-row: 1; }
+.content:has(> .figure .profile-portrait) > p:first-of-type {
+  grid-column: 1; grid-row: 2; margin-top: 0;
+}
+.content > .figure:has(.profile-portrait) {
+  grid-column: 2; grid-row: 1 / span 2; align-self: center; margin: 0; padding: 0;
+}
+.content > .figure:has(.profile-portrait) p { margin: 0; }
+.content img.profile-portrait {
+  display: block; width: 160px; height: 160px; margin: 0;
+  border-radius: 0; image-rendering: pixelated;
+}
+.content:has(> .figure .profile-portrait) > .outline-2 { grid-column: 1 / -1; }
+body:has(.site-nav a[href="/index.html"][aria-current="page"]) #outline-container-radar {
+  padding: 1.1rem 0; margin: 2rem 0 2.5rem; border-block: 1px solid var(--border);
+}
+body:has(.site-nav a[href="/index.html"][aria-current="page"]) #radar {
+  margin: 0 0 .45rem; font-size: .9rem;
+}
+body:has(.site-nav a[href="/index.html"][aria-current="page"]) #text-radar p {
+  margin: 0; color: var(--dim); font-size: .95rem;
+}
+.content .outline-2 { min-width: 0; }
+.content .org-ul, .content .org-ol { padding-left: 1.4rem; }
+.content li { padding-left: .15rem; margin: .45rem 0; }
+.content .writing-list { list-style: none; padding: 0; margin: 1rem 0 1.25rem; }
+.writing-list li { display: grid; grid-template-columns: 7.3rem minmax(0, 1fr);
+  align-items: baseline; gap: 1.25rem; padding: 1rem 0; margin: 0;
+  border-bottom: 1px solid var(--border); }
+.writing-list time { font: .75rem/1.6 var(--font-mono); font-variant-numeric: tabular-nums;
+  color: var(--dim); }
+.writing-list a { color: var(--fg); text-decoration: none; line-height: 1.5; }
+.writing-list a:hover, .writing-list a:focus-visible { color: var(--link); }
+body:has(.site-nav a[href="/blog/index.html"][aria-current="page"]) main > .org-ul {
+  list-style: none; padding: 0; margin: 1.5rem 0;
+}
+body:has(.site-nav a[href="/blog/index.html"][aria-current="page"]) main > .org-ul li {
+  padding: 1rem 0; margin: 0; border-bottom: 1px solid var(--border);
+  color: var(--dim); font: .75rem/1.7 var(--font-mono);
+}
+body:has(.site-nav a[href="/blog/index.html"][aria-current="page"]) main > .org-ul a {
+  display: block; margin-bottom: .3rem; font: 1rem/1.5 var(--font-main);
+  color: var(--fg); text-decoration: none;
+}
+body:has(.site-nav a[href="/blog/index.html"][aria-current="page"]) main > .org-ul a:hover {
+  color: var(--link);
+}
+.content pre { max-width: 100%; overflow-x: auto; margin: 1.5rem 0;
+  padding: 1.2rem 1.4rem; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--surface); font: .8rem/1.75 var(--font-mono); tab-size: 2; }
+.content pre code { padding: 0; background: none; color: inherit; }
+.content code, .content kbd { font: .82em/1.5 var(--font-mono); color: #e3c19e;
+  padding: .15em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+.content blockquote { margin: 1.5rem 0; padding: .1rem 0 .1rem 1.2rem;
+  border-left: 1px solid var(--link); color: var(--fg); font-style: normal; }
+.content img { max-width: 100%; height: auto; border-radius: 8px; }
+.content .figure p { font-size: .85rem; color: var(--dim); }
+.content .figure:not(:has(.profile-portrait)) {
+  width: fit-content; max-width: 100%; margin: 2rem auto;
+}
+.content .figure:not(:has(.profile-portrait)) > p {
+  max-width: none; margin: .65rem 0 0; text-align: left; font-style: normal;
+}
+.content .figure:not(:has(.profile-portrait)) > p:has(img) { margin: 0; }
+.content .figure:not(:has(.profile-portrait)) img { margin: 0 auto; }
+.content .figure > p:has(.figure-number) { contain: inline-size; }
+.content table { display: block; max-width: 100%; overflow-x: auto;
+  border-collapse: collapse; font-size: .9rem; }
+.content th, .content td { padding: .6rem .9rem; border-bottom: 1px solid var(--border);
+  text-align: left; vertical-align: top; }
+.site-footer { display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem; margin: 4rem auto 0; max-width: 720px; padding: 1.25rem 0 0;
+  font: .75rem/1.6 var(--font-mono); color: var(--dim); text-align: left; }
+.site-footer p { margin: 0; }
+.site-footer a { color: var(--dim); }
+
+/* One expressive element; the rest of the page stays quiet enough to read. */
+.content .tech-radar { margin: 2rem 0 2.5rem; padding: 1.5rem;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.tech-radar .radar-layout { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.4rem; }
+.content .tech-radar svg { max-width: 430px; overflow: visible; }
+.tech-radar .radar-blip { text-decoration: none; }
+.content .radar-index { gap: 1.4rem; }
+.content .radar-index a { font-size: .95rem; padding: .4rem 0; min-height: 36px;
+  text-decoration: none; }
+.content .radar-index a:hover span:last-child { text-decoration: underline; }
+.content .radar-index-ring { font-size: .75rem; letter-spacing: .01em; }
+.content .radar-number { font-size: .7rem; color: var(--dim); }
+.content .tech-radar figcaption { font-size: .75rem; color: var(--dim); line-height: 1.6; }
+.content:has(.tech-radar) > p { font-size: .95rem; }
+.content:has(.tech-radar) > p:first-of-type { font-size: 1.1rem; }
+.content:has(.tech-radar) > p:not(:first-of-type) {
+  display: inline-block; margin: 0 1rem .3rem 0; color: var(--dim);
+  font-size: .8rem; line-height: 1.6;
+}
+.content:has(.tech-radar) .outline-2 { margin-top: 2.5rem; padding-top: 1.3rem;
+  border-top: 1px solid var(--border); }
+.content:has(.tech-radar) h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
+.content:has(.tech-radar) .outline-text-2 > p { font-size: .9rem; color: var(--dim);
+  margin: 0 0 1.7rem; }
+.content:has(.tech-radar) .outline-3 { margin: 1.8rem 0; }
+.content:has(.tech-radar) h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
+.content:has(.tech-radar) .outline-text-3 > p:first-child:has(.timestamp) {
+  font: .7rem/1.6 var(--font-mono); color: var(--dim); }
+.content .radar-history { font-size: .85rem; margin-top: 1rem; }
+.content .radar-history summary { padding: .5rem 0; min-height: 40px;
+  color: var(--dim); font: .7rem/1.6 var(--font-mono); cursor: pointer; width: fit-content; }
+.content .radar-history summary:hover { color: var(--link); }
+.content .radar-history ul { margin: .5rem 0; padding-left: 1.2rem; }
+.content :target { scroll-margin-top: 2rem; }
+.content h3:target { color: var(--link); }
+@media (max-width: 680px) {
+  body { padding: 1.25rem 1.25rem 1.5rem; font-size: 16px; }
+  .site-header { margin-bottom: 2.25rem; gap: .8rem; align-items: flex-start; }
+  .site-header .logo { font-size: 1.5rem; }
+  .site-nav { flex: 0 0 100%; }
+  .site-nav ul { gap: 1.5rem; }
+  .site-nav a { font-size: .78rem; }
+  .content > h1.title { font-size: 1.8rem; }
+  main.content:has(> .figure .profile-portrait) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .content > .figure:has(.profile-portrait) {
+    grid-column: 1; grid-row: 1; justify-self: center; margin-bottom: 1.5rem;
+  }
+  .content img.profile-portrait { width: 96px; height: 96px; }
+  .content:has(> .figure .profile-portrait) > .title { grid-row: 2; text-align: center; }
+  .content:has(> .figure .profile-portrait) > p:first-of-type {
+    grid-column: 1; grid-row: 3;
+  }
+  h2 { margin-top: 2.2rem; font-size: 1.1rem; }
+  .writing-list li { grid-template-columns: minmax(0, 1fr); gap: .3rem; padding: .9rem 0; }
+  .content pre { padding: 1rem; font-size: .72rem; }
+  .content .tech-radar { padding: 1.1rem .9rem; }
+  .tech-radar .radar-layout { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .content .tech-radar svg { max-width: 360px; }
+  .content .tech-radar .radar-label { font-size: 22px; }
+  .content .tech-radar .radar-blip > text { font-size: 22px; }
+  .content .radar-index { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1rem; }
+  .content .radar-index a { min-height: 44px; }
+  .site-footer { margin-top: 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}

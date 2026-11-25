@@ -1,43 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Building a Frictionless Publishing System with Emacs</title>
 <meta name="generator" content="Org Mode" />
-</head>
-<body>
-<div id="preamble" class="status">
 <link rel="stylesheet" href="/links/style.css"/>
-                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=JetBrains+Mono&display=swap"/>
-                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka-etoile/iosevka-etoile.min.css"/>
+                     <link rel="stylesheet" href="/links/fonts.css"/>
+                     
                      <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
                      
+                     <link rel="stylesheet" href="/links/site.css"/>
 </head>
 <body>
 <div id="preamble" class="status">
-<header>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
   <a href="/" class="logo">nana adane</a>
-  <nav>
-    <ul>
-      <li><a href="/index.html">bio</a></li>
-      <li><a href="/blog/index.html">blog</a></li>
-      <li><a href="/projects.html">projects</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul><li><a href="/index.html">bio</a></li>
+<li><a href="/blog/index.html" aria-current="location">blog</a></li>
+<li><a href="/projects.html">projects</a></li>
+<li><a href="/radar.html">radar</a></li></ul>
   </nav>
 </header>
-<main class="content">
 </div>
-<div id="content" class="content">
+<main id="content" class="content">
 <h1 class="title">Building a Frictionless Publishing System with Emacs</h1>
 <p>
 I rebuilt my personal site from scratch, and this time I did it right. No static site generator to install, no Ruby dependencies to manage, no build scripts scattered across my system. Just Emacs, org-mode, and a custom package I built to tie it all together.
 </p>
-<div id="outline-container-org9d10b98" class="outline-2">
-<h2 id="org9d10b98">The Problem with Static Site Generators</h2>
-<div class="outline-text-2" id="text-org9d10b98">
+<div id="outline-container-org24242e0" class="outline-2">
+<h2 id="org24242e0">The Problem with Static Site Generators</h2>
+<div class="outline-text-2" id="text-org24242e0">
 <p>
 I've used Jekyll, Hugo, and a custom Node.js setup over the years. They all had the same issues:
 </p>
@@ -53,9 +48,9 @@ The barrier between "I have a thought" and "it's published" was too high. So I s
 </p>
 </div>
 </div>
-<div id="outline-container-org883688d" class="outline-2">
-<h2 id="org883688d">The Emacs Way</h2>
-<div class="outline-text-2" id="text-org883688d">
+<div id="outline-container-org75eebc1" class="outline-2">
+<h2 id="org75eebc1">The Emacs Way</h2>
+<div class="outline-text-2" id="text-org75eebc1">
 <p>
 I already write everything in Emacs. My notes, my code, my journal - all in org-mode. Why not my blog?
 </p>
@@ -69,16 +64,16 @@ I wanted something better: a complete publishing system that lives entirely in E
 </p>
 </div>
 </div>
-<div id="outline-container-org9897ed7" class="outline-2">
-<h2 id="org9897ed7">org-personal-site</h2>
-<div class="outline-text-2" id="text-org9897ed7">
+<div id="outline-container-orgf73b5d1" class="outline-2">
+<h2 id="orgf73b5d1">org-personal-site</h2>
+<div class="outline-text-2" id="text-orgf73b5d1">
 <p>
 So I built <code>org-personal-site</code>, an Emacs package that handles everything:
 </p>
 </div>
-<div id="outline-container-orgcdf0377" class="outline-3">
-<h3 id="orgcdf0377">What It Does</h3>
-<div class="outline-text-3" id="text-orgcdf0377">
+<div id="outline-container-org9c77ac6" class="outline-3">
+<h3 id="org9c77ac6">What It Does</h3>
+<div class="outline-text-3" id="text-org9c77ac6">
 <ul class="org-ul">
 <li><b>Builds sites</b> from org-mode files using <code>ox-publish</code></li>
 <li><b>Generates CSS</b> from theme configuration (no editing CSS files)</li>
@@ -90,15 +85,15 @@ So I built <code>org-personal-site</code>, an Emacs package that handles everyth
 </ul>
 </div>
 </div>
-<div id="outline-container-org3482dbb" class="outline-3">
-<h3 id="org3482dbb">The Workflow</h3>
-<div class="outline-text-3" id="text-org3482dbb">
+<div id="outline-container-org7b89780" class="outline-3">
+<h3 id="org7b89780">The Workflow</h3>
+<div class="outline-text-3" id="text-org7b89780">
 <p>
 Writing a post:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">;; Create new post
+<pre class="src src-elisp"><code>;; Create new post
 M-x org-personal-site-new-post RET "My Post Title" RET
 
 ;; Write in org-mode
@@ -109,7 +104,7 @@ M-x org-personal-site-preview
 
 ;; Deploy to GitHub Pages
 M-x org-personal-site-deploy
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -117,9 +112,9 @@ That's it. No terminal, no separate build commands, no deployment scripts.
 </p>
 </div>
 </div>
-<div id="outline-container-orgadfb2d6" class="outline-3">
-<h3 id="orgadfb2d6">Design Decisions</h3>
-<div class="outline-text-3" id="text-orgadfb2d6">
+<div id="outline-container-org14c9347" class="outline-3">
+<h3 id="org14c9347">Design Decisions</h3>
+<div class="outline-text-3" id="text-org14c9347">
 <p>
 <b>In-memory template generation</b>: CSS, HTML headers, and RSS feeds are generated from configuration at build time. No template files to edit, no CSS to maintain separately.
 </p>
@@ -142,9 +137,9 @@ That's it. No terminal, no separate build commands, no deployment scripts.
 </div>
 </div>
 </div>
-<div id="outline-container-org61c2cf4" class="outline-2">
-<h2 id="org61c2cf4">The Stack</h2>
-<div class="outline-text-2" id="text-org61c2cf4">
+<div id="outline-container-orgaa6d605" class="outline-2">
+<h2 id="orgaa6d605">The Stack</h2>
+<div class="outline-text-2" id="text-orgaa6d605">
 <ul class="org-ul">
 <li><b>Format</b>: Org-mode</li>
 <li><b>Generator</b>: Custom Emacs package (~1100 lines of Elisp)</li>
@@ -159,9 +154,9 @@ Total dependencies: Emacs, git, Python (for preview server). That's it.
 </p>
 </div>
 </div>
-<div id="outline-container-org0f0d0c4" class="outline-2">
-<h2 id="org0f0d0c4">Why This Matters</h2>
-<div class="outline-text-2" id="text-org0f0d0c4">
+<div id="outline-container-org420bd2b" class="outline-2">
+<h2 id="org420bd2b">Why This Matters</h2>
+<div class="outline-text-2" id="text-org420bd2b">
 <p>
 This isn't just about having a blog. It's about removing friction from the creative process.
 </p>
@@ -185,9 +180,9 @@ This system gets me closer to that ideal.
 </p>
 </div>
 </div>
-<div id="outline-container-org5c0e116" class="outline-2">
-<h2 id="org5c0e116">Try It</h2>
-<div class="outline-text-2" id="text-org5c0e116">
+<div id="outline-container-org3046f2e" class="outline-2">
+<h2 id="org3046f2e">Try It</h2>
+<div class="outline-text-2" id="text-org3046f2e">
 <p>
 The package is available at <a href="https://github.com/v3rse/org-personal-site">github.com/v3rse/org-personal-site</a>.
 </p>
@@ -197,20 +192,20 @@ It's opinionated - designed for personal blogs, not general-purpose sites. But i
 </p>
 
 <div class="org-src-container">
-<pre class="src src-elisp">(use-package org-personal-site
+<pre class="src src-elisp"><code>(use-package org-personal-site
   :vc (:fetcher github :repo "v3rse/org-personal-site")
   :custom
   (org-personal-site-source-dir "~/org/my-blog")
   (org-personal-site-output-dir "~/username.github.io")
   (org-personal-site-name "My Site")
   (org-personal-site-author "Your Name"))
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org4b51b18" class="outline-2">
-<h2 id="org4b51b18">What's Next</h2>
-<div class="outline-text-2" id="text-org4b51b18">
+<div id="outline-container-orgee0cd50" class="outline-2">
+<h2 id="orgee0cd50">What's Next</h2>
+<div class="outline-text-2" id="text-orgee0cd50">
 <p>
 Some ideas I'm considering:
 </p>
@@ -228,9 +223,9 @@ But honestly? The current system does everything I need. Sometimes "done" is goo
 </p>
 </div>
 </div>
-<div id="outline-container-org3637b21" class="outline-2">
-<h2 id="org3637b21">Inspiration</h2>
-<div class="outline-text-2" id="text-org3637b21">
+<div id="outline-container-org510faff" class="outline-2">
+<h2 id="org510faff">Inspiration</h2>
+<div class="outline-text-2" id="text-org510faff">
 <p>
 This project was inspired by:
 </p>
@@ -242,9 +237,9 @@ This project was inspired by:
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f27a5b" class="outline-2">
-<h2 id="org4f27a5b">Conclusion</h2>
-<div class="outline-text-2" id="text-org4f27a5b">
+<div id="outline-container-orgd189d4a" class="outline-2">
+<h2 id="orgd189d4a">Conclusion</h2>
+<div class="outline-text-2" id="text-orgd189d4a">
 <p>
 Building your own tools is worth it. Not because the result is better than off-the-shelf solutions, but because you understand every part of it. When something breaks, you can fix it. When you want a feature, you can add it.
 </p>
@@ -258,11 +253,10 @@ That's the whole point.
 </p>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
 </main>
-<footer>
-  <p>© 2026 Nana Adane | <a href="/feed.xml">RSS</a></p>
+<div id="postamble" class="status">
+<footer class="site-footer">
+  <p>© 2026 Nana Adane</p><a href="/feed.xml">RSS</a>
 </footer>
 </div>
 </body>

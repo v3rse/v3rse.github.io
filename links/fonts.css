@@ -1,0 +1,15 @@
+/* Local, Latin-subset OFL fonts. Other scripts use the system fallback. */
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../media/fonts/pixelify-sans-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../media/fonts/jetbrains-mono-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}

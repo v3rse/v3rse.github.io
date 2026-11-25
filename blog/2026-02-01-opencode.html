@@ -1,94 +1,120 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OpenCode</title>
 <meta name="generator" content="Org Mode" />
-</head>
-<body>
-<div id="preamble" class="status">
 <link rel="stylesheet" href="/links/style.css"/>
-                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=JetBrains+Mono&display=swap"/>
-                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka-etoile/iosevka-etoile.min.css"/>
+                     <link rel="stylesheet" href="/links/fonts.css"/>
+                     
                      <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
                      
+                     <link rel="stylesheet" href="/links/site.css"/>
 </head>
 <body>
 <div id="preamble" class="status">
-<header>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
   <a href="/" class="logo">nana adane</a>
-  <nav>
-    <ul>
-      <li><a href="/index.html">bio</a></li>
-      <li><a href="/blog/index.html">blog</a></li>
-      <li><a href="/projects.html">projects</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul><li><a href="/index.html">bio</a></li>
+<li><a href="/blog/index.html" aria-current="location">blog</a></li>
+<li><a href="/projects.html">projects</a></li>
+<li><a href="/radar.html">radar</a></li></ul>
   </nav>
 </header>
-<main class="content">
 </div>
-<div id="content" class="content">
+<main id="content" class="content">
 <h1 class="title">OpenCode</h1>
 
-<div id="orga770def" class="figure">
-<p><img src="https://opencode.ai/docs/_astro/screenshot.CQjBbRyJ_1dLadc.webp" alt="screenshot.CQjBbRyJ_1dLadc.webp" />
+<div id="org835872d" class="figure">
+<p><img src="../media/opencode-tui.png" alt="OpenCode terminal interface" width="1824" height="1488">
 </p>
 <p><span class="figure-number">Figure 1: </span>OpenCode in Action</p>
 </div>
-<div id="outline-container-orgd71dbb4" class="outline-2">
-<h2 id="orgd71dbb4">Setup Gemini when you have Google AI Plus/Ultra subscription</h2>
-<div class="outline-text-2" id="text-orgd71dbb4">
+
 <p>
-Note: you don't get Gemini API keys with your Google AI subscription but you do get more usage credits when you use Gemini CLI and Antigravity.
+OpenCode is an AI coding agent that you can use from the terminal, the
+web, your editor, or the command line. It works with local models
+through Ollama and with cloud models through plugins.
+</p>
+<div id="outline-container-orgfd9d99a" class="outline-2">
+<h2 id="orgfd9d99a">Use Gemini with a Google AI Plus or Ultra subscription</h2>
+<div class="outline-text-2" id="text-orgfd9d99a">
+<p>
+You do not get Gemini API keys with your Google AI subscription. But
+you get more usage credits when you use Gemini CLI and Antigravity.
 </p>
 
 <p>
-But you use this OpenCode plugin to use you subscription: <a href="https://github.com/jenslys/opencode-gemini-auth">jenslys/opencode-gemini-auth: Gemini auth plugin for opencode</a>
+To use your subscription with OpenCode, install this plugin:
+<a href="https://github.com/jenslys/opencode-gemini-auth">jenslys/opencode-gemini-auth</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgdfb4ddf" class="outline-2">
-<h2 id="orgdfb4ddf">Setup Docker MCP</h2>
-<div class="outline-text-2" id="text-orgdfb4ddf">
+<div id="outline-container-orgb8b25a1" class="outline-2">
+<h2 id="orgb8b25a1">Set up Docker MCP</h2>
+<div class="outline-text-2" id="text-orgb8b25a1">
 <p>
-<a href="https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#opencode">Verify MCP - OpenCode</a>
-use <code>opencode run ...</code> instead of the command use in the instructions
+Docker gives you MCP servers that run in containers. To connect them to
+OpenCode:
 </p>
+
+<ol class="org-ol">
+<li>Follow the guide at
+<a href="https://docs.docker.com/ai/mcp-catalog-and-toolkit/get-started/#opencode">Verify MCP - OpenCode</a>.</li>
+<li>Use <code>opencode run ...</code> instead of the command that the guide shows.</li>
+</ol>
 </div>
 </div>
-<div id="outline-container-orgb6ff310" class="outline-2">
-<h2 id="orgb6ff310">Ollama Support</h2>
-<div class="outline-text-2" id="text-orgb6ff310">
+<div id="outline-container-orgd45dbd1" class="outline-2">
+<h2 id="orgd45dbd1">Use Ollama with OpenCode</h2>
+<div class="outline-text-2" id="text-orgd45dbd1">
 <p>
-Seems like you can setup OpenCode to use Ollama:
-<a href="https://docs.ollama.com/integrations/opencode">OpenCode - Ollama</a>
+You can configure OpenCode to use Ollama for local models. For
+instructions, refer to <a href="https://docs.ollama.com/integrations/opencode">OpenCode - Ollama</a>.
 </p>
 
 <p>
-Simple as <code>ollama launch opencode</code> and then you pick the models you want.
-You may need to increase the ollama context window size since OpenCode needs that:
-<a href="https://docs.ollama.com/context-length">Context length - Ollama</a>
-This can be added to <a href="file:///usr/lib/systemd/system/ollama.service">/usr/lib/systemd/system/ollama.service</a> as an <code>Environment</code> entry
-You'll need to run <code>systemctl daemon-reload</code> to apply the changes
+To start, run <code>ollama launch opencode</code>. Then select the models that you
+want.
 </p>
-</div>
-</div>
-<div id="outline-container-org4228548" class="outline-2">
-<h2 id="org4228548">More Plugins</h2>
-<div class="outline-text-2" id="text-org4228548">
+
 <p>
-<a href="https://opencode.ai/docs/ecosystem/">Ecosystem | OpenCode</a>
+OpenCode needs a large context window. If the default is not
+sufficient, increase it:
+</p>
+
+<ol class="org-ol">
+<li><p>
+Add this line to the <code>[Service]</code> section of
+<code>/usr/lib/systemd/system/ollama.service</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><code>Environment="OLLAMA_CONTEXT_LENGTH=64000"
+</code></pre>
+</div></li>
+<li>Run <code>systemctl daemon-reload</code> to apply the change.</li>
+</ol>
+
+<p>
+For more information, refer to <a href="https://docs.ollama.com/context-length">Context length - Ollama</a>.
 </p>
 </div>
 </div>
+<div id="outline-container-org2247db7" class="outline-2">
+<h2 id="org2247db7">Find more plugins</h2>
+<div class="outline-text-2" id="text-org2247db7">
+<p>
+Browse the plugin catalog at <a href="https://opencode.ai/docs/ecosystem/">Ecosystem | OpenCode</a>.
+</p>
 </div>
-<div id="postamble" class="status">
+</div>
 </main>
-<footer>
-  <p>© 2026 Nana Adane | <a href="/feed.xml">RSS</a></p>
+<div id="postamble" class="status">
+<footer class="site-footer">
+  <p>© 2026 Nana Adane</p><a href="/feed.xml">RSS</a>
 </footer>
 </div>
 </body>

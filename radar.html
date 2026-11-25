@@ -1,38 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tech radar</title>
 <meta name="author" content="Nana Adane" />
 <meta name="generator" content="Org Mode" />
-</head>
-<body>
-<div id="preamble" class="status">
 <link rel="stylesheet" href="/links/style.css"/>
-                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=JetBrains+Mono&display=swap"/>
-                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka-etoile/iosevka-etoile.min.css"/>
+                     <link rel="stylesheet" href="/links/fonts.css"/>
+                     
                      <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
                      
+                     <link rel="stylesheet" href="/links/site.css"/>
 </head>
 <body>
 <div id="preamble" class="status">
-<header>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
   <a href="/" class="logo">nana adane</a>
-  <nav>
-    <ul>
-      <li><a href="/index.html">bio</a></li>
-      <li><a href="/blog/index.html">blog</a></li>
-      <li><a href="/projects.html">projects</a></li>
-      <li><a href="/radar.html">radar</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main navigation">
+    <ul><li><a href="/index.html">bio</a></li>
+<li><a href="/blog/index.html">blog</a></li>
+<li><a href="/projects.html">projects</a></li>
+<li><a href="/radar.html" aria-current="page">radar</a></li></ul>
   </nav>
 </header>
-<main class="content">
 </div>
-<div id="content" class="content">
+<main id="content" class="content">
 <h1 class="title">Tech radar</h1>
 <p>
 A place to keep track of what I use, what I'm trying, and what I want to
@@ -58,17 +52,34 @@ Inspired by <a href="https://www.thoughtworks.com/radar">Thoughtworks' Technolog
   gap: 2rem; align-items: center; }
 .tech-radar svg { display: block; width: 100%; max-width: 400px; height: auto; margin: auto; }
 .tech-radar text { font-family: var(--font-mono, monospace); fill: currentColor; }
-.tech-radar .radar-ring { fill: var(--link, #d4a574); fill-opacity: .035;
+.tech-radar .radar-ring { fill: var(--link, #d4a574); fill-opacity: .025;
   stroke: var(--link, #d4a574); stroke-opacity: .24; }
 .tech-radar .radar-label { font-size: 16px; }
 .tech-radar .radar-axis { stroke: var(--link, #d4a574); stroke-opacity: .18;
   stroke-dasharray: 2 7; }
 .tech-radar .radar-blip circle { fill: var(--link, #d4a574); }
 .tech-radar .radar-blip text { fill: var(--bg, #131010); font-size: 14px; font-weight: bold; }
+.tech-radar .radar-tick { stroke: var(--link, #d4a574); stroke-opacity: .35; stroke-width: 1; }
+.tech-radar .radar-origin { fill: var(--link, #d4a574); }
+.tech-radar .radar-scan { transform-origin: 240px 240px; animation: radar-scan 24s linear infinite;
+  pointer-events: none; }
+.tech-radar .radar-scan path { fill: url(#radar-dither); }
+.tech-radar .radar-scan line { stroke: var(--link, #d4a574); stroke-opacity: .25; }
+.tech-radar .radar-tooltip { display: none; pointer-events: none; }
+.tech-radar .radar-tooltip rect { fill: var(--bg, #131010); stroke: var(--link, #d4a574);
+  stroke-opacity: .65; }
+.tech-radar .radar-tooltip text { fill: var(--fg, #eee); font-size: 14px; font-weight: 400; }
+.tech-radar .radar-blip:hover .radar-tooltip,
+.tech-radar .radar-blip:focus .radar-tooltip { display: inline; }
+@keyframes radar-scan { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .tech-radar .radar-scan { animation: none; display: none; }
+  .tech-radar .radar-tooltip { transition: none; }
+}
 .tech-radar .radar-blip:hover circle, .tech-radar .radar-blip:focus circle {
   stroke: currentColor; stroke-width: 2;
 }
-.tech-radar a:focus-visible, body:has(.tech-radar) summary:focus-visible {
+.tech-radar a:focus-visible, .radar-history summary:focus-visible {
   outline: 2px solid var(--link, #d4a574); outline-offset: 4px; }
 .radar-index { display: grid; gap: 1.2rem; min-width: 0; }
 .radar-index-group { min-width: 0; }
@@ -84,29 +95,11 @@ Inspired by <a href="https://www.thoughtworks.com/radar">Thoughtworks' Technolog
   font-variant-numeric: tabular-nums; color: var(--fg, #eee); }
 .radar-index-empty { font-size: .85rem; margin: 0; }
 .tech-radar figcaption { margin-top: 1.2rem; font-size: .85rem; color: var(--fg, #eee); }
-body:has(.tech-radar) #content { min-width: 0; overflow-wrap: anywhere; }
-body:has(.tech-radar) h1.title { border: 0; margin-bottom: 1rem; }
-body:has(.tech-radar) #content > p { margin: .7rem 0; }
-body:has(.tech-radar) .outline-2 { margin-top: 2rem; padding-top: 1.2rem;
-  border-top: 1px solid var(--border, #3d3838); }
-body:has(.tech-radar) h2 { font-size: 1.15rem; margin: 0 0 .4rem; }
-body:has(.tech-radar) .outline-text-2 > p { font-size: .95rem; margin: 0 0 1.5rem; }
-body:has(.tech-radar) .outline-3 { margin: 1.7rem 0; }
-body:has(.tech-radar) h3 { font-size: 1.1rem; line-height: 1.4; margin: 0 0 .4rem; }
-body:has(.tech-radar) .outline-text-3 > p { margin: .7rem 0; }
-body:has(.tech-radar) .outline-text-3 > p:first-child:has(.timestamp) {
-  font: .8rem var(--font-mono, monospace); color: var(--link, #d4a574); }
-body:has(.tech-radar) .radar-history { margin-top: .75rem; font-size: .85rem; }
-body:has(.tech-radar) .radar-history summary { cursor: pointer; width: fit-content;
+.radar-history { margin-top: .75rem; font-size: .85rem; }
+.radar-history summary { cursor: pointer; width: fit-content;
   padding: .5rem 0; color: var(--link, #d4a574); font-family: var(--font-mono, monospace); }
-body:has(.tech-radar) .radar-history ul { margin: .5rem 0; padding-left: 1.3rem; }
-body:has(.tech-radar) :target { scroll-margin-top: 1.5rem; }
-body:has(.tech-radar) h3:target { color: var(--link, #d4a574); }
+.radar-history ul { margin: .5rem 0; padding-left: 1.3rem; }
 @media (max-width: 600px) {
-  body:has(.tech-radar) { padding: 1.25rem 1rem; font-size: 18px; }
-  body:has(.tech-radar) header { margin-bottom: 1.75rem; gap: .6rem; }
-  body:has(.tech-radar) nav ul { gap: 1rem; }
-  body:has(.tech-radar) header nav a { display: inline-block; padding: .5rem 0; }
   .radar-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .tech-radar svg { max-width: 340px; }
   .tech-radar .radar-label { font-size: 18px; }
@@ -115,24 +108,30 @@ body:has(.tech-radar) h3:target { color: var(--link, #d4a574); }
   .tech-radar { margin: 1.5rem 0 2rem; }
 }
 </style>
-<div class="radar-layout"><svg viewBox="0 0 400 400" role="group" aria-labelledby="radar-title radar-desc">
+<div class="radar-layout"><svg viewBox="0 0 480 480" role="group" aria-labelledby="radar-title radar-desc">
 <title id="radar-title">My tech radar</title>
-<desc id="radar-desc">From the centre outward: Using, Trying, Watching,
-and Stepping back. Each numbered point links to its entry below.</desc>
-<circle class="radar-ring" cx="200" cy="200" r="197"/><text class="radar-label" x="200" y="22" text-anchor="middle">Stepping back</text>
-<circle class="radar-ring" cx="200" cy="200" r="153"/><text class="radar-label" x="200" y="66" text-anchor="middle">Watching</text>
-<circle class="radar-ring" cx="200" cy="200" r="109"/><text class="radar-label" x="200" y="110" text-anchor="middle">Trying</text>
-<circle class="radar-ring" cx="200" cy="200" r="65"/><text class="radar-label" x="200" y="154" text-anchor="middle">Using</text>
-<path class="radar-axis" d="M3 200H397 M200 210V397"/><a class="radar-blip" href="#t3-code" aria-label="1: T3 Code — Using"><circle cx="230.41" cy="169.59" r="15"/><text x="230.41" y="169.59" text-anchor="middle" dy=".35em">01</text></a>
-<a class="radar-blip" href="#omarchy" aria-label="2: Omarchy — Using"><circle cx="169.59" cy="169.59" r="15"/><text x="169.59" y="169.59" text-anchor="middle" dy=".35em">02</text></a>
-<a class="radar-blip" href="#grok-bot" aria-label="3: Grok Bot — Trying"><circle cx="261.52" cy="138.48" r="15"/><text x="261.52" y="138.48" text-anchor="middle" dy=".35em">03</text></a>
-<a class="radar-blip" href="#matt-pocock-skills" aria-label="4: Matt Pocock&apos;s Skills — Trying"><circle cx="138.48" cy="138.48" r="15"/><text x="138.48" y="138.48" text-anchor="middle" dy=".35em">04</text></a>
-<a class="radar-blip" href="#elephant-goldfish" aria-label="5: Elephant-Goldfish — Watching"><circle cx="331.00" cy="200.00" r="15"/><text x="331.00" y="200.00" text-anchor="middle" dy=".35em">05</text></a>
-<a class="radar-blip" href="#herdr" aria-label="6: Herdr — Stepping back"><circle cx="375.00" cy="200.00" r="15"/><text x="375.00" y="200.00" text-anchor="middle" dy=".35em">06</text></a>
+<desc id="radar-desc">From the centre outward: Adopt, Trial, Assess,
+and Caution. Each numbered point links to its entry below.</desc>
+<defs><pattern id="radar-dither" patternUnits="userSpaceOnUse" width="4" height="4">
+<path d="M0 0h1v1H0z M2 2h1v1H2z" fill="var(--link, #d4a574)" fill-opacity=".24"/>
+</pattern></defs><circle class="radar-ring" cx="240" cy="240" r="225"/><text class="radar-label" x="240" y="33" text-anchor="middle">Caution</text>
+<circle class="radar-ring" cx="240" cy="240" r="180"/><text class="radar-label" x="240" y="78" text-anchor="middle">Assess</text>
+<circle class="radar-ring" cx="240" cy="240" r="135"/><text class="radar-label" x="240" y="123" text-anchor="middle">Trial</text>
+<circle class="radar-ring" cx="240" cy="240" r="85"/><text class="radar-label" x="240" y="173" text-anchor="middle">Adopt</text>
+<line class="radar-tick" x1="240.00" y1="14.00" x2="240.00" y2="6.00"/><line class="radar-tick" x1="260.05" y1="10.88" x2="260.39" y2="6.89"/><line class="radar-tick" x1="279.94" y1="13.49" x2="280.63" y2="9.55"/><line class="radar-tick" x1="299.53" y1="17.84" x2="300.56" y2="13.97"/><line class="radar-tick" x1="318.66" y1="23.87" x2="320.03" y2="20.11"/><line class="radar-tick" x1="337.20" y1="31.55" x2="338.89" y2="27.92"/><line class="radar-tick" x1="353.00" y1="44.28" x2="357.00" y2="37.35"/><line class="radar-tick" x1="371.92" y1="51.60" x2="374.22" y2="48.32"/><line class="radar-tick" x1="387.84" y1="63.81" x2="390.41" y2="60.75"/><line class="radar-tick" x1="402.63" y1="77.37" x2="405.46" y2="74.54"/><line class="radar-tick" x1="416.19" y1="92.16" x2="419.25" y2="89.59"/><line class="radar-tick" x1="428.40" y1="108.08" x2="431.68" y2="105.78"/><line class="radar-tick" x1="435.72" y1="127.00" x2="442.65" y2="123.00"/><line class="radar-tick" x1="448.45" y1="142.80" x2="452.08" y2="141.11"/><line class="radar-tick" x1="456.13" y1="161.34" x2="459.89" y2="159.97"/><line class="radar-tick" x1="462.16" y1="180.47" x2="466.03" y2="179.44"/><line class="radar-tick" x1="466.51" y1="200.06" x2="470.45" y2="199.37"/><line class="radar-tick" x1="469.12" y1="219.95" x2="473.11" y2="219.61"/><line class="radar-tick" x1="466.00" y1="240.00" x2="474.00" y2="240.00"/><line class="radar-tick" x1="469.12" y1="260.05" x2="473.11" y2="260.39"/><line class="radar-tick" x1="466.51" y1="279.94" x2="470.45" y2="280.63"/><line class="radar-tick" x1="462.16" y1="299.53" x2="466.03" y2="300.56"/><line class="radar-tick" x1="456.13" y1="318.66" x2="459.89" y2="320.03"/><line class="radar-tick" x1="448.45" y1="337.20" x2="452.08" y2="338.89"/><line class="radar-tick" x1="435.72" y1="353.00" x2="442.65" y2="357.00"/><line class="radar-tick" x1="428.40" y1="371.92" x2="431.68" y2="374.22"/><line class="radar-tick" x1="416.19" y1="387.84" x2="419.25" y2="390.41"/><line class="radar-tick" x1="402.63" y1="402.63" x2="405.46" y2="405.46"/><line class="radar-tick" x1="387.84" y1="416.19" x2="390.41" y2="419.25"/><line class="radar-tick" x1="371.92" y1="428.40" x2="374.22" y2="431.68"/><line class="radar-tick" x1="353.00" y1="435.72" x2="357.00" y2="442.65"/><line class="radar-tick" x1="337.20" y1="448.45" x2="338.89" y2="452.08"/><line class="radar-tick" x1="318.66" y1="456.13" x2="320.03" y2="459.89"/><line class="radar-tick" x1="299.53" y1="462.16" x2="300.56" y2="466.03"/><line class="radar-tick" x1="279.94" y1="466.51" x2="280.63" y2="470.45"/><line class="radar-tick" x1="260.05" y1="469.12" x2="260.39" y2="473.11"/><line class="radar-tick" x1="240.00" y1="466.00" x2="240.00" y2="474.00"/><line class="radar-tick" x1="219.95" y1="469.12" x2="219.61" y2="473.11"/><line class="radar-tick" x1="200.06" y1="466.51" x2="199.37" y2="470.45"/><line class="radar-tick" x1="180.47" y1="462.16" x2="179.44" y2="466.03"/><line class="radar-tick" x1="161.34" y1="456.13" x2="159.97" y2="459.89"/><line class="radar-tick" x1="142.80" y1="448.45" x2="141.11" y2="452.08"/><line class="radar-tick" x1="127.00" y1="435.72" x2="123.00" y2="442.65"/><line class="radar-tick" x1="108.08" y1="428.40" x2="105.78" y2="431.68"/><line class="radar-tick" x1="92.16" y1="416.19" x2="89.59" y2="419.25"/><line class="radar-tick" x1="77.37" y1="402.63" x2="74.54" y2="405.46"/><line class="radar-tick" x1="63.81" y1="387.84" x2="60.75" y2="390.41"/><line class="radar-tick" x1="51.60" y1="371.92" x2="48.32" y2="374.22"/><line class="radar-tick" x1="44.28" y1="353.00" x2="37.35" y2="357.00"/><line class="radar-tick" x1="31.55" y1="337.20" x2="27.92" y2="338.89"/><line class="radar-tick" x1="23.87" y1="318.66" x2="20.11" y2="320.03"/><line class="radar-tick" x1="17.84" y1="299.53" x2="13.97" y2="300.56"/><line class="radar-tick" x1="13.49" y1="279.94" x2="9.55" y2="280.63"/><line class="radar-tick" x1="10.88" y1="260.05" x2="6.89" y2="260.39"/><line class="radar-tick" x1="14.00" y1="240.00" x2="6.00" y2="240.00"/><line class="radar-tick" x1="10.88" y1="219.95" x2="6.89" y2="219.61"/><line class="radar-tick" x1="13.49" y1="200.06" x2="9.55" y2="199.37"/><line class="radar-tick" x1="17.84" y1="180.47" x2="13.97" y2="179.44"/><line class="radar-tick" x1="23.87" y1="161.34" x2="20.11" y2="159.97"/><line class="radar-tick" x1="31.55" y1="142.80" x2="27.92" y2="141.11"/><line class="radar-tick" x1="44.28" y1="127.00" x2="37.35" y2="123.00"/><line class="radar-tick" x1="51.60" y1="108.08" x2="48.32" y2="105.78"/><line class="radar-tick" x1="63.81" y1="92.16" x2="60.75" y2="89.59"/><line class="radar-tick" x1="77.37" y1="77.37" x2="74.54" y2="74.54"/><line class="radar-tick" x1="92.16" y1="63.81" x2="89.59" y2="60.75"/><line class="radar-tick" x1="108.08" y1="51.60" x2="105.78" y2="48.32"/><line class="radar-tick" x1="127.00" y1="44.28" x2="123.00" y2="37.35"/><line class="radar-tick" x1="142.80" y1="31.55" x2="141.11" y2="27.92"/><line class="radar-tick" x1="161.34" y1="23.87" x2="159.97" y2="20.11"/><line class="radar-tick" x1="180.47" y1="17.84" x2="179.44" y2="13.97"/><line class="radar-tick" x1="200.06" y1="13.49" x2="199.37" y2="9.55"/><line class="radar-tick" x1="219.95" y1="10.88" x2="219.61" y2="6.89"/><path class="radar-axis" d="M15 240H465 M240 250V465"/>
+<circle class="radar-origin" cx="240" cy="240" r="2.5"/>
+<g class="radar-scan" aria-hidden="true">
+<path d="M240 240L240 15A225 225 0 0 1 434.86 127.5Z"/>
+<line x1="240" y1="240" x2="434.86" y2="127.5"/></g><a class="radar-blip" href="#t3-code" aria-label="1: T3 Code — Adopt"><title>T3 Code — Adopt</title><circle cx="301.74" cy="245.70" r="16"/><text x="301.74" y="245.70" text-anchor="middle" dy=".35em">01</text><g class="radar-tooltip" aria-hidden="true" transform="translate(259.99 191.70)"><rect width="83.50" height="34" rx="5"/><text x="12" y="22">T3 Code</text></g></a>
+<a class="radar-blip" href="#omarchy" aria-label="2: Omarchy — Adopt"><title>Omarchy — Adopt</title><circle cx="191.00" cy="277.99" r="16"/><text x="191.00" y="277.99" text-anchor="middle" dy=".35em">02</text><g class="radar-tooltip" aria-hidden="true" transform="translate(149.25 223.99)"><rect width="83.50" height="34" rx="5"/><text x="12" y="22">Omarchy</text></g></a>
+<a class="radar-blip" href="#grok-bot" aria-label="3: Grok Bot — Trial"><title>Grok Bot — Trial</title><circle cx="322.80" cy="315.42" r="16"/><text x="322.80" y="315.42" text-anchor="middle" dy=".35em">03</text><g class="radar-tooltip" aria-hidden="true" transform="translate(276.80 261.42)"><rect width="92.00" height="34" rx="5"/><text x="12" y="22">Grok Bot</text></g></a>
+<a class="radar-blip" href="#matt-pocock-skills" aria-label="4: Matt Pocock&apos;s Skills — Trial"><title>Matt Pocock&apos;s Skills — Trial</title><circle cx="128.01" cy="241.44" r="16"/><text x="128.01" y="241.44" text-anchor="middle" dy=".35em">04</text><g class="radar-tooltip" aria-hidden="true" transform="translate(31.01 187.44)"><rect width="194.00" height="34" rx="5"/><text x="12" y="22">Matt Pocock&apos;s Skills</text></g></a>
+<a class="radar-blip" href="#elephant-goldfish" aria-label="5: Elephant-Goldfish — Assess"><title>Elephant-Goldfish — Assess</title><circle cx="308.52" cy="381.26" r="16"/><text x="308.52" y="381.26" text-anchor="middle" dy=".35em">05</text><g class="radar-tooltip" aria-hidden="true" transform="translate(224.27 327.26)"><rect width="168.50" height="34" rx="5"/><text x="12" y="22">Elephant-Goldfish</text></g></a>
+<a class="radar-blip" href="#herdr" aria-label="6: Herdr — Caution"><title>Herdr — Caution</title><circle cx="130.08" cy="409.48" r="16"/><text x="130.08" y="409.48" text-anchor="middle" dy=".35em">06</text><g class="radar-tooltip" aria-hidden="true" transform="translate(96.83 355.48)"><rect width="66.50" height="34" rx="5"/><text x="12" y="22">Herdr</text></g></a>
 </svg>
-<nav class="radar-index" aria-label="Radar entries"><div class="radar-index-group"><p class="radar-index-ring">Using <span>2</span></p><ol><li><a href="#t3-code"><span class="radar-number">01</span><span>T3 Code</span></a></li><li><a href="#omarchy"><span class="radar-number">02</span><span>Omarchy</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Trying <span>2</span></p><ol><li><a href="#grok-bot"><span class="radar-number">03</span><span>Grok Bot</span></a></li><li><a href="#matt-pocock-skills"><span class="radar-number">04</span><span>Matt Pocock&apos;s Skills</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Watching <span>1</span></p><ol><li><a href="#elephant-goldfish"><span class="radar-number">05</span><span>Elephant-Goldfish</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Stepping back <span>1</span></p><ol><li><a href="#herdr"><span class="radar-number">06</span><span>Herdr</span></a></li></ol></div></nav></div><figcaption>Closer to the centre means more confidence. Select an item to read the note below.</figcaption></figure>
+<nav class="radar-index" aria-label="Radar entries"><div class="radar-index-group"><p class="radar-index-ring">Adopt <span>2</span></p><ol><li><a href="#t3-code"><span class="radar-number">01</span><span>T3 Code</span></a></li><li><a href="#omarchy"><span class="radar-number">02</span><span>Omarchy</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Trial <span>2</span></p><ol><li><a href="#grok-bot"><span class="radar-number">03</span><span>Grok Bot</span></a></li><li><a href="#matt-pocock-skills"><span class="radar-number">04</span><span>Matt Pocock&apos;s Skills</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Assess <span>1</span></p><ol><li><a href="#elephant-goldfish"><span class="radar-number">05</span><span>Elephant-Goldfish</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Caution <span>1</span></p><ol><li><a href="#herdr"><span class="radar-number">06</span><span>Herdr</span></a></li></ol></div></nav></div><figcaption>Closer to the centre means more confidence. Select an item to read the note below.</figcaption></figure>
 <div id="outline-container-using" class="outline-2">
-<h2 id="using">Using</h2>
+<h2 id="using">Adopt</h2>
 <div class="outline-text-2" id="text-using">
 <p>
 Things I rely on and would reach for again.
@@ -158,7 +157,7 @@ agent feedback inline.
 </p>
 
 <details class="radar-history"><summary>History</summary><ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br>
 Added to Using.</li>
 </ul>
 </details>
@@ -193,7 +192,7 @@ It gets constant updates and has become my daily driver.
 </p>
 
 <details class="radar-history"><summary>History</summary><ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed 20:59]</span></span> <br />
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed 20:59]</span></span> <br>
 Added to Using.</li>
 </ul>
 </details>
@@ -201,7 +200,7 @@ Added to Using.</li>
 </div>
 </div>
 <div id="outline-container-trying" class="outline-2">
-<h2 id="trying">Trying</h2>
+<h2 id="trying">Trial</h2>
 <div class="outline-text-2" id="text-trying">
 <p>
 Things I'm testing in real work before making them a default.
@@ -220,7 +219,7 @@ a full-time software engineer, and adulting in general.
 </p>
 
 <details class="radar-history"><summary>History</summary><ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br>
 Added to Trying.</li>
 </ul>
 </details>
@@ -240,7 +239,7 @@ interrogate me.
 </p>
 
 <details class="radar-history"><summary>History</summary><ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br>
 Added to Trying.</li>
 </ul>
 </details>
@@ -248,7 +247,7 @@ Added to Trying.</li>
 </div>
 </div>
 <div id="outline-container-watching" class="outline-2">
-<h2 id="watching">Watching</h2>
+<h2 id="watching">Assess</h2>
 <div class="outline-text-2" id="text-watching">
 <p>
 Things I want to explore, with a question in mind.
@@ -274,7 +273,7 @@ predictions about the future.
 </p>
 
 <details class="radar-history"><summary>History</summary><ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br>
 Added to Watching.</li>
 </ul>
 </details>
@@ -282,7 +281,7 @@ Added to Watching.</li>
 </div>
 </div>
 <div id="outline-container-stepping-back" class="outline-2">
-<h2 id="stepping-back">Stepping back</h2>
+<h2 id="stepping-back">Caution</h2>
 <div class="outline-text-2" id="text-stepping-back">
 <p>
 Things I'm moving away from, or would approach with caution.
@@ -302,18 +301,17 @@ manage agents or do agentic work.
 </p>
 
 <details class="radar-history"><summary>History</summary><ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br>
 Added to Stepping back.</li>
 </ul>
 </details>
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
 </main>
-<footer>
-  <p>© 2026 Nana Adane | <a href="/feed.xml">RSS</a></p>
+<div id="postamble" class="status">
+<footer class="site-footer">
+  <p>© 2026 Nana Adane</p><a href="/feed.xml">RSS</a>
 </footer>
 </div>
 </body>
