@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tech radar</title>
+<meta name="author" content="Nana Adane" />
+<meta name="generator" content="Org Mode" />
+</head>
+<body>
+<div id="preamble" class="status">
+<link rel="stylesheet" href="/links/style.css"/>
+                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=JetBrains+Mono&display=swap"/>
+                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.0/iosevka-etoile/iosevka-etoile.min.css"/>
+                     <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+                     
+</head>
+<body>
+<div id="preamble" class="status">
+<header>
+  <a href="/" class="logo">nana adane</a>
+  <nav>
+    <ul>
+      <li><a href="/index.html">bio</a></li>
+      <li><a href="/blog/index.html">blog</a></li>
+      <li><a href="/projects.html">projects</a></li>
+      <li><a href="/radar.html">radar</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="content">
+</div>
+<div id="content" class="content">
+<h1 class="title">Tech radar</h1>
+<p>
+A place to keep track of what I use, what I'm trying, and what I want to
+explore, with a note on why each thing sits where it does.
+</p>
+
+<p>
+Updated: 25 November 2026.
+</p>
+
+<p>
+Inspired by <a href="https://www.thoughtworks.com/radar">Thoughtworks' Technology Radar</a>.
+</p>
+
+<p>
+<a href="radar-archive.html">Previous snapshots →</a>
+</p>
+
+<figure class="tech-radar">
+<style>
+.tech-radar { margin: 2rem 0 3rem; color: var(--fg, #eee); }
+.radar-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2rem; align-items: center; }
+.tech-radar svg { display: block; width: 100%; max-width: 400px; height: auto; margin: auto; }
+.tech-radar text { font-family: var(--font-mono, monospace); fill: currentColor; }
+.tech-radar .radar-ring { fill: var(--link, #d4a574); fill-opacity: .035;
+  stroke: var(--link, #d4a574); stroke-opacity: .24; }
+.tech-radar .radar-label { font-size: 16px; }
+.tech-radar .radar-axis { stroke: var(--link, #d4a574); stroke-opacity: .18;
+  stroke-dasharray: 2 7; }
+.tech-radar .radar-blip circle { fill: var(--link, #d4a574); }
+.tech-radar .radar-blip text { fill: var(--bg, #131010); font-size: 14px; font-weight: bold; }
+.tech-radar .radar-blip:hover circle, .tech-radar .radar-blip:focus circle {
+  stroke: currentColor; stroke-width: 2;
+}
+.tech-radar a:focus-visible, body:has(.tech-radar) summary:focus-visible {
+  outline: 2px solid var(--link, #d4a574); outline-offset: 4px; }
+.radar-index { display: grid; gap: 1.2rem; min-width: 0; }
+.radar-index-group { min-width: 0; }
+.radar-index-ring { display: flex; align-items: baseline; gap: .6rem;
+  font: 600 .85rem var(--font-mono, monospace); color: var(--fg, #eee); margin: 0 0 .4rem; }
+.radar-index-ring span { color: var(--link, #d4a574); font-weight: 400; }
+.radar-index ol { list-style: none; padding: 0; margin: 0; }
+.radar-index li { margin: 0; }
+.radar-index a { display: flex; gap: .75rem; align-items: baseline; padding: .3rem 0;
+  border: 0; color: var(--link, #d4a574); font-size: 1.1rem; line-height: 1.4; overflow-wrap: anywhere; }
+.radar-index a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.radar-index .radar-number { flex: 0 0 1.3rem; font: .75rem var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums; color: var(--fg, #eee); }
+.radar-index-empty { font-size: .85rem; margin: 0; }
+.tech-radar figcaption { margin-top: 1.2rem; font-size: .85rem; color: var(--fg, #eee); }
+body:has(.tech-radar) #content { min-width: 0; overflow-wrap: anywhere; }
+body:has(.tech-radar) h1.title { border: 0; margin-bottom: 1rem; }
+body:has(.tech-radar) #content > p { margin: .7rem 0; }
+body:has(.tech-radar) .outline-2 { margin-top: 2rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--border, #3d3838); }
+body:has(.tech-radar) h2 { font-size: 1.15rem; margin: 0 0 .4rem; }
+body:has(.tech-radar) .outline-text-2 > p { font-size: .95rem; margin: 0 0 1.5rem; }
+body:has(.tech-radar) .outline-3 { margin: 1.7rem 0; }
+body:has(.tech-radar) h3 { font-size: 1.1rem; line-height: 1.4; margin: 0 0 .4rem; }
+body:has(.tech-radar) .outline-text-3 > p { margin: .7rem 0; }
+body:has(.tech-radar) .outline-text-3 > p:first-child:has(.timestamp) {
+  font: .8rem var(--font-mono, monospace); color: var(--link, #d4a574); }
+body:has(.tech-radar) .radar-history { margin-top: .75rem; font-size: .85rem; }
+body:has(.tech-radar) .radar-history summary { cursor: pointer; width: fit-content;
+  padding: .5rem 0; color: var(--link, #d4a574); font-family: var(--font-mono, monospace); }
+body:has(.tech-radar) .radar-history ul { margin: .5rem 0; padding-left: 1.3rem; }
+body:has(.tech-radar) :target { scroll-margin-top: 1.5rem; }
+body:has(.tech-radar) h3:target { color: var(--link, #d4a574); }
+@media (max-width: 600px) {
+  body:has(.tech-radar) { padding: 1.25rem 1rem; font-size: 18px; }
+  body:has(.tech-radar) header { margin-bottom: 1.75rem; gap: .6rem; }
+  body:has(.tech-radar) nav ul { gap: 1rem; }
+  body:has(.tech-radar) header nav a { display: inline-block; padding: .5rem 0; }
+  .radar-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .tech-radar svg { max-width: 340px; }
+  .tech-radar .radar-label { font-size: 18px; }
+  .radar-index { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1rem; }
+  .radar-index a { min-height: 44px; box-sizing: border-box; }
+  .tech-radar { margin: 1.5rem 0 2rem; }
+}
+</style>
+<div class="radar-layout"><svg viewBox="0 0 400 400" role="group" aria-labelledby="radar-title radar-desc">
+<title id="radar-title">My tech radar</title>
+<desc id="radar-desc">From the centre outward: Using, Trying, Watching,
+and Stepping back. Each numbered point links to its entry below.</desc>
+<circle class="radar-ring" cx="200" cy="200" r="197"/><text class="radar-label" x="200" y="22" text-anchor="middle">Stepping back</text>
+<circle class="radar-ring" cx="200" cy="200" r="153"/><text class="radar-label" x="200" y="66" text-anchor="middle">Watching</text>
+<circle class="radar-ring" cx="200" cy="200" r="109"/><text class="radar-label" x="200" y="110" text-anchor="middle">Trying</text>
+<circle class="radar-ring" cx="200" cy="200" r="65"/><text class="radar-label" x="200" y="154" text-anchor="middle">Using</text>
+<path class="radar-axis" d="M3 200H397 M200 210V397"/><a class="radar-blip" href="#t3-code" aria-label="1: T3 Code — Using"><circle cx="243.00" cy="200.00" r="15"/><text x="243.00" y="200.00" text-anchor="middle" dy=".35em">01</text></a>
+<a class="radar-blip" href="#grok-bot" aria-label="2: Grok Bot — Trying"><circle cx="261.52" cy="138.48" r="15"/><text x="261.52" y="138.48" text-anchor="middle" dy=".35em">02</text></a>
+<a class="radar-blip" href="#matt-pocock-skills" aria-label="3: Matt Pocock&apos;s Skills — Trying"><circle cx="138.48" cy="138.48" r="15"/><text x="138.48" y="138.48" text-anchor="middle" dy=".35em">03</text></a>
+<a class="radar-blip" href="#elephant-goldfish" aria-label="4: Elephant-Goldfish — Watching"><circle cx="331.00" cy="200.00" r="15"/><text x="331.00" y="200.00" text-anchor="middle" dy=".35em">04</text></a>
+<a class="radar-blip" href="#herdr" aria-label="5: Herdr — Stepping back"><circle cx="375.00" cy="200.00" r="15"/><text x="375.00" y="200.00" text-anchor="middle" dy=".35em">05</text></a>
+</svg>
+<nav class="radar-index" aria-label="Radar entries"><div class="radar-index-group"><p class="radar-index-ring">Using <span>1</span></p><ol><li><a href="#t3-code"><span class="radar-number">01</span><span>T3 Code</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Trying <span>2</span></p><ol><li><a href="#grok-bot"><span class="radar-number">02</span><span>Grok Bot</span></a></li><li><a href="#matt-pocock-skills"><span class="radar-number">03</span><span>Matt Pocock&apos;s Skills</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Watching <span>1</span></p><ol><li><a href="#elephant-goldfish"><span class="radar-number">04</span><span>Elephant-Goldfish</span></a></li></ol></div><div class="radar-index-group"><p class="radar-index-ring">Stepping back <span>1</span></p><ol><li><a href="#herdr"><span class="radar-number">05</span><span>Herdr</span></a></li></ol></div></nav></div><figcaption>Closer to the centre means more confidence. Select an item to read the note below.</figcaption></figure>
+<div id="outline-container-using" class="outline-2">
+<h2 id="using">Using</h2>
+<div class="outline-text-2" id="text-using">
+<p>
+Things I rely on and would reach for again.
+</p>
+</div>
+<div id="outline-container-t3-code" class="outline-3">
+<h3 id="t3-code">01 · T3 Code</h3>
+<div class="outline-text-3" id="text-t3-code">
+<p>
+Added: <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span>
+</p>
+
+<p>
+<a href="https://t3.codes/">T3 Code</a> has become the orchestration layer I use daily. The UI is very
+good, with a lot of the components I liked in Codex's UI, which I thought
+was the best-designed ADE.
+</p>
+
+<p>
+The best part is using multiple harnesses for their different strengths.
+Honourable mention goes to the cite feature, which lets me respond to
+agent feedback inline.
+</p>
+
+<details class="radar-history"><summary>History</summary><ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+Added to Using.</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-trying" class="outline-2">
+<h2 id="trying">Trying</h2>
+<div class="outline-text-2" id="text-trying">
+<p>
+Things I'm testing in real work before making them a default.
+</p>
+</div>
+<div id="outline-container-grok-bot" class="outline-3">
+<h3 id="grok-bot">02 · Grok Bot</h3>
+<div class="outline-text-3" id="text-grok-bot">
+<p>
+Added: <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span>
+</p>
+
+<p>
+<a href="https://x.ai/bot">Grok Bot</a> has helped me keep track of the craziness of being a dad of two,
+a full-time software engineer, and adulting in general.
+</p>
+
+<details class="radar-history"><summary>History</summary><ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+Added to Trying.</li>
+</ul>
+</details>
+</div>
+</div>
+<div id="outline-container-matt-pocock-skills" class="outline-3">
+<h3 id="matt-pocock-skills">03 · Matt Pocock's Skills</h3>
+<div class="outline-text-3" id="text-matt-pocock-skills">
+<p>
+Added: <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span>
+</p>
+
+<p>
+<a href="https://github.com/mattpocock/skills">Matt Pocock's skills</a> are simple and readable. They scratch a mental itch
+about how I want to work with agents. I especially like the approach of having agents
+interrogate me.
+</p>
+
+<details class="radar-history"><summary>History</summary><ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+Added to Trying.</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-watching" class="outline-2">
+<h2 id="watching">Watching</h2>
+<div class="outline-text-2" id="text-watching">
+<p>
+Things I want to explore, with a question in mind.
+</p>
+</div>
+<div id="outline-container-elephant-goldfish" class="outline-3">
+<h3 id="elephant-goldfish">04 · Elephant-Goldfish</h3>
+<div class="outline-text-3" id="text-elephant-goldfish">
+<p>
+Added: <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span>
+</p>
+
+<p>
+The research example in
+<a href="https://drensin.medium.com/elephants-goldfish-and-the-new-golden-age-of-software-engineering-c33641a48874">Dave Rensin's article</a>
+really piqued my interest. It showed how much more you can get out of
+models with the right kinds of prompts.
+</p>
+
+<p>
+I'm not sure about the <a href="https://egm.dev/">plugin</a> yet, but I like the concepts and the
+predictions about the future.
+</p>
+
+<details class="radar-history"><summary>History</summary><ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+Added to Watching.</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-stepping-back" class="outline-2">
+<h2 id="stepping-back">Stepping back</h2>
+<div class="outline-text-2" id="text-stepping-back">
+<p>
+Things I'm moving away from, or would approach with caution.
+</p>
+</div>
+<div id="outline-container-herdr" class="outline-3">
+<h3 id="herdr">05 · Herdr</h3>
+<div class="outline-text-3" id="text-herdr">
+<p>
+Added: <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span>
+</p>
+
+<p>
+<a href="https://github.com/herdrdev/herdr">Herdr</a> used to be my main way of working with multiple harnesses. I used
+to live in the CLI, but it's no longer the best environment for me to
+manage agents or do agentic work.
+</p>
+
+<details class="radar-history"><summary>History</summary><ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2026-11-25 Wed]</span></span> <br />
+Added to Stepping back.</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+</main>
+<footer>
+  <p>© 2026 Nana Adane | <a href="/feed.xml">RSS</a></p>
+</footer>
+</div>
+</body>
+</html>
